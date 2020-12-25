@@ -127,5 +127,9 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
   };
-
+  window.drawCalculator = function(p){
+    $('#fname').html(p.fname);
+    $('#lname').html(p.lname);
+    $('#dob').html(p.birthdate);
+  };
 })(window);
