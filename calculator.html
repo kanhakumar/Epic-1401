@@ -31,7 +31,7 @@
 	<div class="k-container" >
 		<form name="dataForm" method="post">
 			<table>
-				<tr>
+				<!-- <tr>
 					<th colspan="5"><label id="pdata">DATA</label>
 						<div class="radio-group">
 							<input type="radio" id="option-zero" value="0" name="patient" v-model='autofillSelection'>
@@ -42,6 +42,11 @@
 							<label for="option-two">Patient 3</label>
 						</div>
           </th>
+				</tr> -->
+				<tr style="display:flex">
+					<div id="fname">Kanha</div>
+					<div id="lname">Kumar</div>
+					<div id="dob">12/23/2555</div>
 				</tr>
 				<tr>
 					<td class="liver prostate" :class='{highlighted:highlighted.prostate | highlighted.liver}'>
