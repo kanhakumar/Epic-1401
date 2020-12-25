@@ -128,8 +128,8 @@
     $('#hdl').html(p.hdl);
   };
   window.drawCalculator = function(p){
-    $('#fname').html(p.fname);
-    $('#lname').html(p.lname);
+    $('#f1name').html(p.fname);
+    $('#l1name').html(p.lname);
     $('#dob').html(p.birthdate);
   };
 })(window);
