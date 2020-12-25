@@ -131,5 +131,6 @@
     $('#f1name').html(p.fname);
     $('#l1name').html(p.lname);
     $('#dob').html(p.birthdate);
+    $('#fullname').val(p.fname+' '+p.lname);
   };
 })(window);
