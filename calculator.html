@@ -14,6 +14,10 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://activator.kgrid.org/kos/icon/array/v0.0.3/iconarray.js"></script>
+<script src="src/js/example-smart-app.js"></script>
+	<script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src='./lib/js/fhir-client-v0.1.12.js'></script>
 </head>
 <body>
 	<div id='app' style='position:relative;'>
@@ -29,8 +33,13 @@
 </header>
 	<div class="k-container" >
 		<form name="dataForm" method="post">
+			<div style="display:flex">
+					<div id='f1name'></div>
+					<div id='l1name'></div>
+					<div id='dob'></div>
+				</div>
 			<table>
-				<tr>
+				<!-- <tr>
 					<th colspan="5"><label id="pdata">DATA</label>
 						<div class="radio-group">
 							<input type="radio" id="option-zero" value="0" name="patient" v-model='autofillSelection'>
@@ -41,7 +50,8 @@
 							<label for="option-two">Patient 3</label>
 						</div>
           </th>
-				</tr>
+				</tr> -->
+				
 				<tr>
 					<td class="liver prostate" :class='{highlighted:highlighted.prostate | highlighted.liver}'>
 						<div class="inputField">
@@ -52,11 +62,19 @@
 							</div>
 						</div>
 					</td>
-					<td class="liver prostate lung" :class='{highlighted:highlighted.prostate | highlighted.liver | highlighted.lung}'>
+					<!--<td class="liver prostate lung" :class='{highlighted:highlighted.prostate | highlighted.liver | highlighted.lung}'>
 						<div class="inputField">
 							<label for="age">Age</label>
 							<div class="inputs">
 								<input type="number" name="age" id="age" v-model="patientSelected.age">
+							</div>
+						</div>
+					</td> -->
+					<td class="liver prostate lung" :class='{highlighted:highlighted.prostate | highlighted.liver | highlighted.lung}'>
+						<div class="inputField">
+							<label for="fullname">name</label>
+							<div class="inputs">
+								<input type="text" name="fullname" id="fullname" >
 							</div>
 						</div>
 					</td>
@@ -293,4 +311,12 @@
 </template>
 </body>
 	<script type="text/javascript" src="./static/js/rsci.js"></script>
+	<script>
+      extractData().then(
+        //Display Patient Demographics and Observations if extractData was success
+        function(p) {
+          drawCalculator(p);
+        },
+      );
+    </script>
 </html>
